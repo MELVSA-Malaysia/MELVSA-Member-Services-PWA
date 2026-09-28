@@ -1,0 +1,24 @@
+{
+  "name": "MELVSA Member Services",
+  "short_name": "MELVSA",
+  "description": "MELVSA Member Services Portal",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#eef5f9",
+  "theme_color": "#24486f",
+  "icons": [
+    {
+      "src": "icons/melvsa-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/melvsa-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

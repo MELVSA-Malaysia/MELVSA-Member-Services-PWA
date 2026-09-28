@@ -4,9 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#24486f">
-<title>MELVSA Member Services</title>
-<link rel="manifest" href="./manifest.webmanifest">
-<link rel="apple-touch-icon" href="./icons/melvsa-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="MELVSA">
+<meta name="application-name" content="MELVSA">
+<title>MELVSA</title>
+<link rel="manifest" href="./manifest.webmanifest?v=3">
+<link rel="apple-touch-icon" sizes="180x180" href="./icons/melvsa-180.png?v=3">
+<link rel="icon" type="image/png" sizes="192x192" href="./icons/melvsa-192.png?v=3">
 <style>
 html,body{height:100%;margin:0;background:#eef5f9;font-family:Arial,sans-serif}
 body{display:flex;align-items:center;justify-content:center}
@@ -19,13 +24,13 @@ body{display:flex;align-items:center;justify-content:center}
 </head>
 <body>
 <div class="launch">
-<img src="./icons/melvsa-192.png" alt="MELVSA">
-<h1>MELVSA Member Services</h1>
-<p>Opening the secure MELVSA Member Services Portal…</p>
+<img src="./icons/melvsa-192.png?v=3" alt="MELVSA">
+<h1>MELVSA</h1>
+<p>Opening MELVSA Member Services…</p>
 <a href="https://script.google.com/macros/s/AKfycbyyvF7SIAqonNZZEYowXHLqPQfAzxkp8-vylWw1o6ycRcl4aVZY2mZ4jYmCAmd2tFWj2w/exec">OPEN MEMBER SERVICES</a>
 </div>
 <script>
-if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./service-worker.js"));}
-setTimeout(()=>location.replace("https://script.google.com/macros/s/AKfycbyyvF7SIAqonNZZEYowXHLqPQfAzxkp8-vylWw1o6ycRcl4aVZY2mZ4jYmCAmd2tFWj2w/exec"),350);
+if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./service-worker.js?v=3"));}
+setTimeout(()=>location.replace("https://script.google.com/macros/s/AKfycbyyvF7SIAqonNZZEYowXHLqPQfAzxkp8-vylWw1o6ycRcl4aVZY2mZ4jYmCAmd2tFWj2w/exec"),650);
 </script>
 </body></html>

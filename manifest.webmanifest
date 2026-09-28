@@ -9,13 +9,13 @@
   "theme_color": "#24486f",
   "icons": [
     {
-      "src": "icons/melvsa-192.png?v=3",
+      "src": "icons/melvsa-192.png?v=5",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "icons/melvsa-512.png?v=3",
+      "src": "icons/melvsa-512.png?v=5",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"

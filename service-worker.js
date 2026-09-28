@@ -1,5 +1,5 @@
-const CACHE="melvsa-member-services-shell-v3";
-const ASSETS=["./manifest.webmanifest?v=3","./icons/melvsa-180.png?v=3","./icons/melvsa-192.png?v=3","./icons/melvsa-512.png?v=3"];
-self.addEventListener("install",e=>{self.skipWaiting();e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)))});
-self.addEventListener("activate",e=>{e.waitUntil((async()=>{const keys=await caches.keys();await Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)));await self.clients.claim()})())});
-self.addEventListener("fetch",e=>{if(e.request.mode==="navigate"){e.respondWith(fetch(e.request));return;}const u=new URL(e.request.url);if(u.origin===self.location.origin)e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)))});
+const CACHE="melvsa-member-services-shell-v5";
+const ASSETS=["./manifest.webmanifest?v=5","./icons/melvsa-180.png?v=5","./icons/melvsa-192.png?v=5","./icons/melvsa-512.png?v=5"];
+self.addEventListener("install",event=>{self.skipWaiting();event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)))});
+self.addEventListener("activate",event=>{event.waitUntil((async()=>{for(const key of await caches.keys()){if(key!==CACHE)await caches.delete(key)}await self.clients.claim()})())});
+self.addEventListener("fetch",event=>{const url=new URL(event.request.url);if(url.origin===self.location.origin&&event.request.mode!=="navigate"){event.respondWith(caches.match(event.request).then(cached=>cached||fetch(event.request)))}});

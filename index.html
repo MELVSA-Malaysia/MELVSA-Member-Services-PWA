@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#24486f">
+<title>MELVSA Member Services</title>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icons/melvsa-180.png">
+<style>
+html,body{height:100%;margin:0;background:#eef5f9;font-family:Arial,sans-serif}
+.shell{height:100%;display:flex;flex-direction:column}
+.bar{background:#24486f;color:white;padding:10px 14px;display:flex;align-items:center;gap:10px}
+.bar img{width:34px;height:34px}.bar strong{font-size:16px}
+.frame{border:0;width:100%;flex:1;background:white}
+</style>
+</head>
+<body>
+<div class="shell">
+<div class="bar"><img src="./icons/melvsa-192.png" alt=""><strong>MELVSA Member Services</strong></div>
+<iframe class="frame" src="https://script.google.com/macros/s/AKfycbvOoD_FFIsmiRH6veiyjBGjpp_GAL-e7SEFNNZeymkWXiGksjHzX7Q_eW8NFdNky_UM/exec" title="MELVSA Member Services Portal"></iframe>
+</div>
+<script>
+if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./service-worker.js"));}
+</script>
+</body></html>

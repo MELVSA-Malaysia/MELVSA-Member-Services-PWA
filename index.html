@@ -31,6 +31,8 @@ body{display:flex;align-items:center;justify-content:center}
 </div>
 <script>
 if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./service-worker.js?v=3"));}
-const params=new URLSearchParams(location.search);\nconst standalone=window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone===true;\nif(standalone){location.replace("https://script.google.com/macros/s/AKfycbyyvF7SIAqonNZZEYowXHLqPQfAzxkp8-vylWw1o6ycRcl4aVZY2mZ4jYmCAmd2tFWj2w/exec");}
+const params=new URLSearchParams(location.search);
+const standalone=window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone===true;
+if(standalone){location.replace("https://script.google.com/macros/s/AKfycbyyvF7SIAqonNZZEYowXHLqPQfAzxkp8-vylWw1o6ycRcl4aVZY2mZ4jYmCAmd2tFWj2w/exec");}
 </script>
 </body></html>

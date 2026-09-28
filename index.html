@@ -5,13 +5,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#24486f">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="MELVSA">
 <meta name="application-name" content="MELVSA">
 <title>MELVSA</title>
-<link rel="manifest" href="./manifest.webmanifest?v=3">
-<link rel="apple-touch-icon" sizes="180x180" href="./icons/melvsa-180.png?v=3">
-<link rel="icon" type="image/png" sizes="192x192" href="./icons/melvsa-192.png?v=3">
+<link rel="manifest" href="./manifest.webmanifest?v=5">
+<link rel="apple-touch-icon" sizes="180x180" href="./icons/melvsa-180.png?v=5">
+<link rel="icon" type="image/png" sizes="192x192" href="./icons/melvsa-192.png?v=5">
 <style>
 html,body{height:100%;margin:0;background:#eef5f9;font-family:Arial,sans-serif}
 body{display:flex;align-items:center;justify-content:center}
@@ -24,15 +25,27 @@ body{display:flex;align-items:center;justify-content:center}
 </head>
 <body>
 <div class="launch">
-<img src="./icons/melvsa-192.png?v=3" alt="MELVSA">
+<img src="./icons/melvsa-192.png?v=5" alt="MELVSA">
 <h1>MELVSA</h1>
-<p>Opening MELVSA Member Services…</p>
+<p>Install MELVSA Member Services from this page.</p>
 <a href="https://script.google.com/macros/s/AKfycbyyvF7SIAqonNZZEYowXHLqPQfAzxkp8-vylWw1o6ycRcl4aVZY2mZ4jYmCAmd2tFWj2w/exec">OPEN MEMBER SERVICES</a>
 </div>
 <script>
-if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./service-worker.js?v=3"));}
-const params=new URLSearchParams(location.search);
-const standalone=window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone===true;
-if(standalone){location.replace("https://script.google.com/macros/s/AKfycbyyvF7SIAqonNZZEYowXHLqPQfAzxkp8-vylWw1o6ycRcl4aVZY2mZ4jYmCAmd2tFWj2w/exec");}
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("./service-worker.js?v=5");
+  });
+}
+(function () {
+  var params = new URLSearchParams(window.location.search);
+  var launchedAsInstalledApp =
+    params.get("app") === "1" ||
+    window.navigator.standalone === true ||
+    window.matchMedia("(display-mode: standalone)").matches;
+  if (launchedAsInstalledApp) {
+    window.location.replace("https://script.google.com/macros/s/AKfycbyyvF7SIAqonNZZEYowXHLqPQfAzxkp8-vylWw1o6ycRcl4aVZY2mZ4jYmCAmd2tFWj2w/exec");
+  }
+})();
 </script>
-</body></html>
+</body>
+</html>

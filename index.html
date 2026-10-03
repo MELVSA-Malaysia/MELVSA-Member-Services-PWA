@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-title" content="MELVSA">
 <meta name="application-name" content="MELVSA">
 <title>MELVSA</title>
-<link rel="manifest" href="./manifest.webmanifest?v=8">
+<link rel="manifest" href="./manifest.webmanifest?v=9">
 <link rel="apple-touch-icon" sizes="180x180" href="./icons/melvsa-180.png?v=8">
 <link rel="icon" type="image/png" sizes="192x192" href="./icons/melvsa-192.png?v=8">
 <link rel="preconnect" href="https://script.google.com">
@@ -23,9 +23,10 @@ html,body{width:100%;height:100%;margin:0;padding:0;overflow:hidden;background:#
 </style>
 </head>
 <body>
-<iframe id="portal" src="https://script.google.com/macros/s/AKfycbwI4oyjVug1N-R23KM6I-MBGvp36Pi6j5qRg1TWuS2pnYlCG87l63hUEfRhep1Z_OhADA/exec" title="MELVSA Member Services" allow="clipboard-read; clipboard-write" fetchpriority="high"></iframe>
+<iframe id="portal" src="about:blank" data-src="https://script.google.com/macros/s/AKfycbwI4oyjVug1N-R23KM6I-MBGvp36Pi6j5qRg1TWuS2pnYlCG87l63hUEfRhep1Z_OhADA/exec" title="MELVSA Member Services" allow="clipboard-read; clipboard-write" fetchpriority="high"></iframe>
 <script>
 const SESSION_KEY="melvsaMemberSession";
+const portal=document.getElementById("portal");
 window.addEventListener("message",function(e){
   const d=e.data||{};
   if(d.type==="MELVSA_SESSION_SET"&&d.session)localStorage.setItem(SESSION_KEY,d.session);
@@ -35,7 +36,9 @@ window.addEventListener("message",function(e){
     document.getElementById("portal").contentWindow.postMessage({type:"MELVSA_SESSION_VALUE",session:s},"*");
   }
 });
-if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("./service-worker.js?v=8");});}
+portal.addEventListener("load",function(){const s=localStorage.getItem(SESSION_KEY)||"";if(s)portal.contentWindow.postMessage({type:"MELVSA_SESSION_VALUE",session:s},"*");});
+portal.src=portal.dataset.src;
+if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("./service-worker.js?v=9");});}
 </script>
 </body>
 </html>

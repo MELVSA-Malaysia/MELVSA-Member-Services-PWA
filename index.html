@@ -34,7 +34,7 @@ async function sendSession(){const s=await savedSession();portal.contentWindow.p
 window.addEventListener("message",async function(e){const d=e.data||{};if(d.type==="MELVSA_SESSION_SET"&&d.session){await saveSession(d.session);portal.contentWindow.postMessage({type:"MELVSA_SESSION_SAVED"},"*")}if(d.type==="MELVSA_SESSION_CLEAR")await clearSession();if(d.type==="MELVSA_SESSION_GET")await sendSession();if(d.type==="MELVSA_ACTIVITY_NAVIGATE"&&e.source===portal.contentWindow){try{const u=new URL(d.url);if(u.protocol==="https:"&&u.hostname==="script.google.com"&&u.pathname.startsWith("/macros/s/AKfycbz405O4u4qbiST6cajuiOgNUN-KGQucnmojuBqV38MnzusP5Xj5aXKKdpMF7jjoFjY_/exec")){window.location.assign(u.href)}}catch(err){}}});
 portal.addEventListener("load",()=>{sendSession();setTimeout(sendSession,350);setTimeout(sendSession,1200)});
 (async()=>{await savedSession();portal.src=portal.dataset.src})();
-if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./service-worker.js?v=12"));}
+if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./service-worker.js?v=13"));}
 </script>
-</body>
+<aside id="installOffer" hidden style="position:fixed;z-index:9999;bottom:16px;left:16px;right:16px;max-width:420px;margin:auto;padding:18px;background:white;border-radius:14px;box-shadow:0 6px 30px #888;font:14px system-ui"><strong>Add MELVSA to Home Screen?</strong><p id="installText">Install MELVSA Member Services for quick access.</p><button id="installNow" style="padding:10px;background:#24486f;color:white;border:0;border-radius:7px">Install MELVSA</button> <button id="installDismiss" style="padding:10px;border:0;border-radius:7px">Not now</button></aside><script src="./install-prompt.js?v=13"></script></body>
 </html>

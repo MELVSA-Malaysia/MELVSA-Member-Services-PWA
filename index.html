@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-title" content="MELVSA">
 <meta name="application-name" content="MELVSA">
 <title>MELVSA</title>
-<link rel="manifest" href="./manifest.webmanifest?v=11">
+<link rel="manifest" href="./manifest.webmanifest?v=12">
 <link rel="apple-touch-icon" sizes="180x180" href="./icons/melvsa-180.png?v=8">
 <link rel="icon" type="image/png" sizes="192x192" href="./icons/melvsa-192.png?v=8">
 <link rel="preconnect" href="https://script.google.com">
@@ -34,7 +34,7 @@ async function sendSession(){const s=await savedSession();portal.contentWindow.p
 window.addEventListener("message",async function(e){const d=e.data||{};if(d.type==="MELVSA_SESSION_SET"&&d.session){await saveSession(d.session);portal.contentWindow.postMessage({type:"MELVSA_SESSION_SAVED"},"*")}if(d.type==="MELVSA_SESSION_CLEAR")await clearSession();if(d.type==="MELVSA_SESSION_GET")await sendSession();if(d.type==="MELVSA_ACTIVITY_NAVIGATE"&&e.source===portal.contentWindow){try{const u=new URL(d.url);if(u.protocol==="https:"&&u.hostname==="script.google.com"&&u.pathname.startsWith("/macros/s/AKfycbz405O4u4qbiST6cajuiOgNUN-KGQucnmojuBqV38MnzusP5Xj5aXKKdpMF7jjoFjY_/exec")){window.location.assign(u.href)}}catch(err){}}});
 portal.addEventListener("load",()=>{sendSession();setTimeout(sendSession,350);setTimeout(sendSession,1200)});
 (async()=>{await savedSession();portal.src=portal.dataset.src})();
-if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./service-worker.js?v=11"));}
+if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./service-worker.js?v=12"));}
 </script>
 </body>
 </html>
